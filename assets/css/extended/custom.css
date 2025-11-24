@@ -162,28 +162,27 @@ body:not(.list) .nav {
     margin: 0 auto;
 }
 
-/* Post Body Wrapper (Content + TOC) */
-.post-body-wrapper {
-    display: block;
-}
-
 /* Desktop Sidebar Layout */
 @media (min-width: 1300px) {
-    .post-body-wrapper {
+    /* Make article a grid container */
+    .post-single {
         display: grid;
         grid-template-columns: 250px 1fr;
-        /* Match reference site TOC width */
         gap: 3rem;
         align-items: start;
     }
 
-    .post-content {
-        margin: 0;
+    /* Post header spans full width */
+    .post-header {
+        grid-column: 1 / -1;
+        max-width: 100%;
+        margin: 0 0 2rem 0;
     }
 
-    /* Table of Contents */
+    /* TOC on left side */
     .toc {
-        order: -1;
+        grid-column: 1;
+        grid-row: 2;
         position: sticky;
         top: 2rem;
         margin-bottom: 0;
@@ -193,6 +192,20 @@ body:not(.list) .nav {
         border: none;
         padding-right: 1rem;
         border-right: 1px solid var(--border);
+    }
+
+    /* Content on right side */
+    .post-content {
+        grid-column: 2;
+        grid-row: 2;
+        max-width: 680px;
+        margin: 0;
+    }
+
+    /* Footer spans full width */
+    .post-footer {
+        grid-column: 1 / -1;
+        margin-top: 2rem;
     }
 
     .toc summary {
