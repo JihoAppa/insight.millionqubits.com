@@ -214,12 +214,20 @@ body:not(.list) .nav {
     }
 
     /* Force .inner content to be visible */
-    .toc details > .inner {
+    .toc details > .inner,
+    .toc #TableOfContents {
         display: block !important;
         visibility: visible !important;
         opacity: 1 !important;
         height: auto !important;
         max-height: none !important;
+    }
+
+    /* Override any height restrictions on nav inside .inner */
+    .toc .inner > nav,
+    .toc .inner > #TableOfContents {
+        display: block !important;
+        height: auto !important;
     }
 
     /* Content on right side */
