@@ -1,0 +1,113 @@
+# baseURL은 프로덕션 빌드 시에만 사용됩니다
+# hugo server는 자동으로 localhost를 사용합니다
+# baseURL: 'https://paper.millionqubits.com/'
+defaultContentLanguage: 'ko'
+theme: 'PaperMod'
+
+# 다국어 설정 (파일 기반: file.md, file.en.md)
+languages:
+  ko:
+    languageName: '한국어'
+    languageCode: 'ko-KR'
+    title: '호진의 인사이트'
+    weight: 1
+    taxonomies:
+      tag: tags
+      category: categories
+    params:
+      homeInfoParams:
+        Title: "안녕하세요 👋"
+        Content: "보안 전문가로 10년 이상 경력을 쌓아왔으며, 특히 DAST 보안 솔루션 개발 분야에서 7년 이상의 경험을 보유하고 있습니다. 현재 N사에 재직 중이며, AI 기반 DAST 솔루션 개발에 깊은 관심을 가지고 있습니다. 영어 능통자로 비즈니스 회화가 가능합니다.\n\n협업 및 연구 관련 문의는 jiho_appa@naver.com 으로 연락 바랍니다."
+    menu:
+      main:
+        - identifier: "archives"
+          name: "아카이브"
+          url: "archives"
+          weight: 5
+        - identifier: "search"
+          name: "검색"
+          url: "search/"
+          weight: 10
+        - identifier: "tags"
+          name: "태그"
+          url: "tags/"
+          weight: 20
+
+  en:
+    languageName: 'English'
+    languageCode: 'en-US'
+    title: "Hojin's Insight"
+    weight: 2
+    taxonomies:
+      tag: tags
+      category: categories
+    params:
+      homeInfoParams:
+        Title: "Hello 👋"
+        Content: "Security expert with over 10 years of experience, specializing in DAST security solution development for more than 7 years. Currently working at N Company and deeply interested in AI-based DAST solution development. Fluent in English with business-level communication skills.\n\nFor collaboration and research inquiries, please contact jiho_appa@naver.com"
+    menu:
+      main:
+        - identifier: "archives"
+          name: "Archives"
+          url: "archives/"
+          weight: 5
+        - identifier: "search"
+          name: "Search"
+          url: "search/"
+          weight: 10
+        - identifier: "tags"
+          name: "Tags"
+          url: "tags/"
+          weight: 20
+
+params:
+  # 프로필 설정
+  profileMode:
+    enabled: false  # Regular 모드 사용
+  
+  # 언어 전환 버튼 활성화
+  disableLangToggle: false
+  
+  # 기능 설정
+  ShowReadingTime: true
+  ShowShareButtons: true
+  ShowPostNavLinks: true
+  ShowBreadCrumbs: true
+  ShowCodeCopyButtons: true
+  ShowWordCount: true
+  ShowRssButtonInSectionTermList: true
+  ShowAllPagesInArchive: true
+  UseHugoToc: true
+  disableSpecial1stPost: false
+  disableScrollToTop: false
+  comments: false
+  hidemeta: false
+  hideSummary: false
+  showtoc: true
+  tocopen: false
+  
+  # 검색 활성화
+  fuseOpts:
+    isCaseSensitive: false
+    shouldSort: true
+    location: 0
+    distance: 1000
+    threshold: 0.4
+    minMatchCharLength: 0
+    keys: ["title", "permalink", "summary", "content"]
+  
+  # 메인 섹션 지정 (검색 인덱스에 포함될 섹션)
+  mainSections: ["posts", "docs-examples"]
+
+# 출력 형식 (검색용)
+outputs:
+  home: ["HTML", "RSS", "JSON"]
+  section: ["HTML", "RSS"]
+  taxonomy: ["HTML", "RSS"]
+  term: ["HTML", "RSS"]
+
+markup:
+  tableOfContents:
+    endLevel: 2
+    startLevel: 2
+    ordered: false
