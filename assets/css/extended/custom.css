@@ -204,13 +204,13 @@ body:not(.list) .nav {
         display: block !important;
     }
 
+    /* Hide summary completely on desktop */
     .toc details summary {
-        pointer-events: none;
-        list-style: none;
+        display: none !important;
     }
 
     .toc details summary::-webkit-details-marker {
-        display: none;
+        display: none !important;
     }
 
     /* Force .inner content to be visible */
