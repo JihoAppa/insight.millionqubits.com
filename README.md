@@ -165,6 +165,7 @@ Content: 185.199.108.153
 ### 배포 관련
 - [배포 가이드](docs/DEPLOYMENT.md)
 - [DNS 설정](docs/DNS_SETUP.md)
+- [문제 해결 가이드](docs/TROUBLESHOOTING.md) 🔧
 
 ## 🎨 디자인 커스터마이징
 
