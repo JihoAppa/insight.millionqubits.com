@@ -9,6 +9,11 @@ body {
     background-color: var(--theme);
 }
 
+/* Logo margin adjustment */
+.logo {
+    margin-left: 0 !important;
+}
+
 /* Default font for all content - Lora for English */
 .post-content {
     font-family: Lora, serif !important;
@@ -192,6 +197,29 @@ body:not(.list) .nav {
         border: none;
         padding-right: 1rem;
         border-right: 1px solid var(--border);
+    }
+
+    /* Force TOC details to always be open on desktop */
+    .toc details {
+        display: block !important;
+    }
+
+    .toc details summary {
+        pointer-events: none;
+        list-style: none;
+    }
+
+    .toc details summary::-webkit-details-marker {
+        display: none;
+    }
+
+    /* Force .inner content to be visible */
+    .toc details > .inner {
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        height: auto !important;
+        max-height: none !important;
     }
 
     /* Content on right side */
