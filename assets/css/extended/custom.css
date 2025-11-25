@@ -24,6 +24,12 @@ body {
 /* English pages - Lora for title, headings, and TOC */
 html[lang="en"] .post-title,
 html[lang="en-US"] .post-title,
+html[lang="en"] .post-description,
+html[lang="en-US"] .post-description,
+html[lang="en"] .page-meta,
+html[lang="en-US"] .page-meta,
+html[lang="en"] .post-meta,
+html[lang="en-US"] .post-meta,
 html[lang="en"] h1,
 html[lang="en"] h2,
 html[lang="en"] h3,
@@ -53,6 +59,9 @@ body.lang-ko .post-content {
 
 /* Apply Korean serif font to Title, Headings and TOC */
 html[lang="ko"] .post-title,
+html[lang="ko"] .post-description,
+html[lang="ko"] .page-meta,
+html[lang="ko"] .post-meta,
 html[lang="ko"] h1,
 html[lang="ko"] h2,
 html[lang="ko"] h3,
@@ -62,6 +71,9 @@ html[lang="ko"] h6,
 html[lang="ko"] .toc,
 html[lang="ko"] .toc a,
 html[lang="ko-KR"] .post-title,
+html[lang="ko-KR"] .post-description,
+html[lang="ko-KR"] .page-meta,
+html[lang="ko-KR"] .post-meta,
 html[lang="ko-KR"] h1,
 html[lang="ko-KR"] h2,
 html[lang="ko-KR"] h3,
@@ -71,6 +83,9 @@ html[lang="ko-KR"] h6,
 html[lang="ko-KR"] .toc,
 html[lang="ko-KR"] .toc a,
 body[data-lang="ko"] .post-title,
+body[data-lang="ko"] .post-description,
+body[data-lang="ko"] .page-meta,
+body[data-lang="ko"] .post-meta,
 body[data-lang="ko"] h1,
 body[data-lang="ko"] h2,
 body[data-lang="ko"] h3,
@@ -80,6 +95,9 @@ body[data-lang="ko"] h6,
 body[data-lang="ko"] .toc,
 body[data-lang="ko"] .toc a,
 body.lang-ko .post-title,
+body.lang-ko .post-description,
+body.lang-ko .page-meta,
+body.lang-ko .post-meta,
 body.lang-ko h1,
 body.lang-ko h2,
 body.lang-ko h3,
@@ -150,7 +168,7 @@ h3 {
 body:not(.list) .main {
     max-width: 1400px;
     margin: 0 auto;
-    padding: 2rem 1rem;
+    padding: 32px 1rem 2rem 1rem;
 }
 
 body:not(.list) .nav {
@@ -178,44 +196,62 @@ body:not(.list) .nav {
     }
 
     /* Post header spans full width */
-    .post-header {
+    .post-single > .post-header {
         grid-column: 1 / -1;
         max-width: 100%;
-        margin: 0 0 2rem 0;
+        margin: 0 0 0 0;
+        padding-bottom: 2rem;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
     }
 
-    /* TOC on left side */
-    .toc {
+    /* TOC on left side - ensure it's visible and positioned correctly */
+    .post-single > .toc {
         grid-column: 1;
         grid-row: 2;
         position: sticky;
         top: 2rem;
         margin-bottom: 0;
-        max-height: calc(100vh - 4rem);
-        overflow-y: auto;
+        max-height: none;
+        overflow-y: visible;
         background: transparent;
         border: none;
         padding-right: 1rem;
         border-right: 1px solid var(--border);
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+    }
+    
+    /* Add "Contents" heading before TOC */
+    .post-single > .toc::before {
+        content: "Contents";
+        display: block;
+        font-size: 1.1rem;
+        font-weight: 700;
+        color: var(--primary);
+        /* margin-bottom: 1rem; */
+        /* padding-bottom: 0.75rem; */
+        /* border-bottom: 1px solid rgba(0, 0, 0, 0.1); */
+        letter-spacing: 0.5px;
     }
 
     /* Force TOC details to always be open on desktop */
-    .toc details {
+    .post-single > .toc details {
         display: block !important;
     }
 
     /* Hide summary completely on desktop */
-    .toc details summary {
+    .post-single > .toc details summary {
         display: none !important;
     }
 
-    .toc details summary::-webkit-details-marker {
+    .post-single > .toc details summary::-webkit-details-marker {
         display: none !important;
     }
 
     /* Force .inner content to be visible */
-    .toc details > .inner,
-    .toc #TableOfContents {
+    .post-single > .toc details > .inner,
+    .post-single > .toc #TableOfContents {
         display: block !important;
         visibility: visible !important;
         opacity: 1 !important;
@@ -224,14 +260,14 @@ body:not(.list) .nav {
     }
 
     /* Override any height restrictions on nav inside .inner */
-    .toc .inner > nav,
-    .toc .inner > #TableOfContents {
+    .post-single > .toc .inner > nav,
+    .post-single > .toc .inner > #TableOfContents {
         display: block !important;
         height: auto !important;
     }
 
     /* Content on right side */
-    .post-content {
+    .post-single > .post-content {
         grid-column: 2;
         grid-row: 2;
         max-width: 680px;
@@ -239,12 +275,12 @@ body:not(.list) .nav {
     }
 
     /* Footer spans full width */
-    .post-footer {
+    .post-single > .post-footer {
         grid-column: 1 / -1;
-        margin-top: 2rem;
+        margin-top: 4rem;
     }
 
-    .toc summary {
+    .post-single > .toc summary {
         font-size: 1.2rem;
         font-weight: bold;
         cursor: default;
@@ -255,34 +291,66 @@ body:not(.list) .nav {
         list-style: none;
     }
 
-    .toc summary::-webkit-details-marker {
+    .post-single > .toc summary::-webkit-details-marker {
         display: none;
     }
 
-    .toc details .inner {
+    .post-single > .toc details .inner {
         display: block !important;
     }
 
-    .toc .inner {
+    .post-single > .toc .inner {
         padding: 0;
     }
+    
+    /* TOC details div - no left margin */
+    #top > main > article > div.toc > details > div {
+        margin-left: 0 !important;
+    }
 
-    .toc ul {
+    .post-single > .toc ul {
         list-style: none;
         padding: 0;
         margin: 0;
     }
 
-    .toc li {
+    .post-single > .toc li {
         margin-bottom: 0.2rem;
+        list-style: none;
+        position: relative;
+    }
+    
+    /* Active TOC item - no padding to avoid indent */
+    .post-single > .toc li:has(> a.active),
+    .post-single > .toc li.active {
+        padding-left: 0;
+    }
+    
+    /* Marker for active TOC items using ::before */
+    .post-single > .toc li:has(> a.active)::before,
+    .post-single > .toc li.active::before {
+        content: "▸    ";
+        position: absolute;
+        left: -0.9rem;
+        top: 50%;
+        transform: translateY(-50%);
+        /* font-size: 1.8em; */
+        color: var(--primary);
+        unicode-bidi: isolate;
+        font-variant-numeric: tabular-nums;
+        text-transform: none;
+        text-indent: 0px !important;
+        text-align: start !important;
+        text-align-last: auto !important;
     }
 
-    .toc a {
+    .post-single > .toc a {
         color: var(--secondary);
         text-decoration: none;
         transition: all 0.2s ease;
         display: block;
         padding: 0;
+        padding-left: 0;
         position: relative;
         word-wrap: break-word;
         overflow-wrap: break-word;
@@ -291,28 +359,20 @@ body:not(.list) .nav {
         font-size: 16px;
     }
 
-    .toc a:hover {
+    .post-single > .toc a:hover {
         color: var(--primary);
         text-decoration: underline;
         box-shadow: none !important; /* Remove theme's box-shadow to prevent double underline */
     }
 
-    .toc a.active {
+    .post-single > .toc a.active {
         color: var(--primary);
         font-weight: bold;
     }
 
-    .toc a.active::before {
-        content: "";
-        position: absolute;
-        left: -1rem;
-        top: 50%;
-        transform: translateY(-50%);
-        width: 0;
-        height: 0;
-        border-top: 5px solid transparent;
-        border-bottom: 5px solid transparent;
-        border-left: 6px solid var(--primary);
+    /* Remove old ::before marker from a tag */
+    .post-single > .toc a.active::before {
+        display: none;
     }
 }
 
@@ -320,7 +380,9 @@ body:not(.list) .nav {
 @media (max-width: 1299px) {
     .post-header {
         max-width: 680px;
-        margin: 0 auto 2rem auto;
+        margin: 0 auto 0 auto;
+        padding-bottom: 2rem;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
     }
 
     .toc {

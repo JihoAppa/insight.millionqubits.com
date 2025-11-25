@@ -1,0 +1,76 @@
+<script>
+// TOC active marker - scrollspy implementation
+(function() {
+    function updateTOCActive() {
+        // Get all TOC links and their corresponding headings
+        const tocLinks = document.querySelectorAll('.toc a[href^="#"]');
+        const headings = Array.from(tocLinks).map(link => {
+            const href = link.getAttribute('href');
+            if (!href || href === '#') return null;
+            const id = href.substring(1);
+            const heading = document.getElementById(id);
+            return { link, heading, id };
+        }).filter(item => item && item.heading);
+        
+        if (headings.length === 0) return;
+        
+        // Remove all active classes
+        tocLinks.forEach(link => link.classList.remove('active'));
+        document.querySelectorAll('.toc li').forEach(li => li.classList.remove('active'));
+        
+        // Find the current active section based on scroll position
+        const scrollPosition = window.scrollY + 100; // Offset for better UX
+        
+        let activeHeading = null;
+        for (let i = headings.length - 1; i >= 0; i--) {
+            const { heading } = headings[i];
+            const rect = heading.getBoundingClientRect();
+            if (rect.top <= 150) { // When heading is near top
+                activeHeading = headings[i];
+                break;
+            }
+        }
+        
+        // If no heading is scrolled past, use the first one
+        if (!activeHeading && headings.length > 0) {
+            activeHeading = headings[0];
+        }
+        
+        // Add active class to the active link and its parent li
+        if (activeHeading) {
+            activeHeading.link.classList.add('active');
+            const li = activeHeading.link.closest('li');
+            if (li) {
+                li.classList.add('active');
+            }
+        }
+    }
+    
+    // Update on page load
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', updateTOCActive);
+    } else {
+        updateTOCActive();
+    }
+    
+    // Update on scroll
+    let ticking = false;
+    window.addEventListener('scroll', function() {
+        if (!ticking) {
+            window.requestAnimationFrame(function() {
+                updateTOCActive();
+                ticking = false;
+            });
+            ticking = true;
+        }
+    });
+    
+    // Update when hash changes
+    window.addEventListener('hashchange', function() {
+        setTimeout(updateTOCActive, 100);
+    });
+    
+    // Update after a short delay to ensure DOM is ready
+    setTimeout(updateTOCActive, 500);
+})();
+</script>
