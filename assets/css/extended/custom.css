@@ -110,19 +110,35 @@ body.lang-ko .toc a {
 }
 
 /* Typography Improvements */
+.post-content p,
+.post-content ul,
+.post-content ol,
+.post-content blockquote {
+    margin-top: 0;
+    margin-bottom: 1em;
+    margin-left: 0;
+    margin-right: 0;
+}
+
 .post-content p {
-    margin-block-start: 0;
-    margin-block-end: 16.96px;
-    margin-bottom: 16.96px;
     text-align: justify;
     hyphens: none;
+    font-optical-sizing: auto;
+    color: rgba(0, 0, 0, 0.8);
     -webkit-hyphens: none;
     -moz-hyphens: none;
     -ms-hyphens: none;
 }
 
+/* Text justify for desktop */
+@media (min-width: 768px) {
+    .post-content p,
+    .post-content li {
+        text-align: justify;
+    }
+}
+
 .post-content li {
-    text-align: justify;
     hyphens: none;
 }
 

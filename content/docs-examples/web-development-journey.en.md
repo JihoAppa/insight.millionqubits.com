@@ -6,7 +6,7 @@ tags: ["web-development", "frontend", "backend", "career"]
 categories: ["development", "retrospective"]
 author: "Jiho Appa"
 showToc: true
-TocOpen: false
+# TocOpen: 
 description: "Sharing my growth process and lessons learned as a web developer."
 ---
 

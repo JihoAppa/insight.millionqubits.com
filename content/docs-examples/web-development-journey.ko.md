@@ -6,7 +6,7 @@ tags: ["웹개발", "프론트엔드", "백엔드", "커리어"]
 categories: ["개발", "회고"]
 author: "지호아빠"
 showToc: true
-TocOpen: false
+# TocOpen: false
 description: "웹 개발자로서의 성장 과정과 배운 교훈들을 공유합니다."
 ---
 

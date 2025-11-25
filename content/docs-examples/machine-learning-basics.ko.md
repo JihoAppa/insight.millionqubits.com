@@ -6,7 +6,6 @@ tags: ["머신러닝", "AI", "python", "데이터과학"]
 categories: ["AI/ML"]
 author: "지호아빠"
 showToc: true
-TocOpen: false
 description: "머신러닝의 기초 개념과 첫 번째 모델을 만드는 방법을 알아봅니다."
 ---
 

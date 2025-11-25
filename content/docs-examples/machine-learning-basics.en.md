@@ -6,7 +6,6 @@ tags: ["machine-learning", "AI", "python", "data-science"]
 categories: ["AI/ML"]
 author: "Jiho Appa"
 showToc: true
-TocOpen: false
 description: "Learn the basic concepts of machine learning and how to create your first model."
 ---
 
