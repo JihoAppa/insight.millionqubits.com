@@ -1,6 +1,6 @@
 # baseURL은 프로덕션 빌드 시에만 사용됩니다
 # hugo server는 자동으로 localhost를 사용합니다
-# baseURL: 'https://insight.millionqubits.com/'
+baseURL: 'https://insight.millionqubits.com/'
 defaultContentLanguage: 'ko'
 theme: 'PaperMod'
 
