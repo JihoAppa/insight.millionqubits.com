@@ -1,5 +1,5 @@
 ---
-title: 옵시디언과 hugo 동기화하기.ko
+title: 옵시디언과 hugo 동기화하기
 date: 2025-11-25T21:06:52+09:00
 draft: false
 tags: []
