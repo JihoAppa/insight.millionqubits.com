@@ -1,14 +1,14 @@
 ---
-title: "옵시디언과 hugo 동기화하기.ko"
+title: 옵시디언과 hugo 동기화하기.ko
 date: 2025-11-25T21:06:52+09:00
-draft: true
+draft: false
 tags: []
 categories: []
-author: "지호아빠"
+author: 지호아빠
 showToc: true
 TocOpen: true
 description: ""
-filename: "영어-영어-en.md"
+filename: 영어-영어-en.md
 ---
 
 ## 개요
@@ -16,6 +16,10 @@ filename: "영어-영어-en.md"
 이 글의 개요를 간단히 소개합니다.
 
 ![[Pasted image 20251125210702.png]]
+
+여기에 이미지가 들어갔습니다.
+![[Pasted image 20251127110908.png]]
+
 
 ## 본문
 
