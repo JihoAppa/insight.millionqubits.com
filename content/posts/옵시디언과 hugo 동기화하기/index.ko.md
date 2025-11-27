@@ -15,12 +15,9 @@ filename: 영어-영어-en.md
 
 이 글의 개요를 간단히 소개합니다.
 
-![[Pasted image 20251125210702.png]]
+![](attachments/Pasted%20image%2020251127111332.png)
 
 여기에 이미지가 들어갔습니다.
-![[Pasted image 20251127110908.png]]
-
-
 ## 본문
 
 ### 섹션 1
