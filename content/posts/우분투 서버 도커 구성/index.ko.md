@@ -1,7 +1,7 @@
 ---
 title: 우분투 서버에서 도커 구성하기
 date: 2025-12-03T18:09:02+09:00
-draft: true
+draft: false
 tags: []
 categories: []
 author: 지호아빠
